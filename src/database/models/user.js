@@ -1,13 +1,30 @@
 const createUser = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    id: DataTypes.INTEGER,
-    displayName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    image: DataTypes.STRING,
-  }, {
-    tableName: 'users',
-    // underscored: true,
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    displayName: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+    },
+  },
+  {
+    timestamps: false,
+    tableName: 'Users'
   });
   return User;
 };
