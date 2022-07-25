@@ -1,9 +1,15 @@
 const { Router } = require('express');
 
-const user = require('../controllers/usersController');
+const { validateToken } = require('../services/loginService');
+
+const { user, allUsers, byId } = require('../controllers/usersController');
 
 const router = Router();
 
-router.get('/', user);
+router.post('/', user);
+
+router.get('/', validateToken, allUsers);
+
+router.get('/:id', validateToken, byId);
 
 module.exports = router;

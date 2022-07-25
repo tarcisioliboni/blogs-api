@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
 const jwtService = require('./jwtService');
-const { findOne } = require('./userService');
+const { findUser } = require('./userService');
 
 const loginService = {
 
@@ -23,7 +23,7 @@ const loginService = {
   
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      const user = await findOne(decoded);
+      const user = await findUser(decoded);
       req.user = user;
   
       next();

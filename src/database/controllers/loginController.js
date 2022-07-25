@@ -1,6 +1,6 @@
 const { loginS } = require('../services/loginService');
 const jwtService = require('../services/jwtService');
-const loginSchema = require('../schemas/loginSchema');
+const { loginSchema } = require('../schemas');
 
 const userLogin = {
   login: async (req, res) => {
