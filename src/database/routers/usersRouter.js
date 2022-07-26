@@ -4,12 +4,12 @@ const { validateToken } = require('../services/loginService');
 
 const { user, allUsers, byId } = require('../controllers/usersController');
 
-const router = Router();
+const usersRouter = Router();
 
-router.post('/', user);
+usersRouter.post('/', user);
 
-router.get('/', validateToken, allUsers);
+usersRouter.get('/', validateToken, allUsers);
 
-router.get('/:id', validateToken, byId);
+usersRouter.get('/:id', validateToken, byId);
 
-module.exports = router;
+module.exports = usersRouter;
